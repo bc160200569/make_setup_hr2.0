@@ -3,7 +3,7 @@
 
 ## Installation Process
 
-- [ ] [Laravel Documentation](https://laravel.com/docs/8.x/installation)
+- [ ] [Laravel Documentation](https://laravel.com/docs/9.x/installation)
 
 ```
 cp .env.example .env
