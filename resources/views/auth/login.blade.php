@@ -27,21 +27,21 @@
                             <input id="password" class="form-control @error('password') is-invalid @enderror" type="password" name="password" autocomplete="current-password" placeholder="Password" />
                             @error('password') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
-                        <div class="form-group text-left mt-2">
+                        {{--<!-- <div class="form-group text-left mt-2">
                             <div class="checkbox checkbox-primary d-inline">
                                 <input id="remember_me" type="checkbox" name="remember">
                                 <label for="remember_me" class="cr">Save credentials</label>
                             </div>
-                        </div>
+                        </div> -->--}}
                         <button class="btn btn-block btn-primary mt-2 mb-0">Signin</button>
-                        <div class="text-center">
+                        {{--<div class="text-center">
                             <div class="saprator my-4"><span>OR</span></div>
                             <button class="btn text-white bg-facebook mb-2 me-2  wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-facebook-f"></i></button>
                             <button class="btn text-white bg-googleplus mb-2 me-2 wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-google-plus-g"></i></button>
                             <button class="btn text-white bg-twitter mb-2  wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-twitter"></i></button>
                             <!--<p class="mb-2 mt-4 text-muted">Forgot password? <a href="auth-reset-password-img-side.html" class="f-w-400">Reset</a></p>-->
-                            <!--<p class="mb-0 text-muted">Don’t have an account? <a href="auth-signup-img-side.html" class="f-w-400">Signup</a></p>-->
-                        </div>
+                            <!--<p class="mb-0 text-muted">Donï¿½t have an account? <a href="auth-signup-img-side.html" class="f-w-400">Signup</a></p>-->
+                        </div>--}}
                     </div>
                 </form>
             </div>
@@ -51,7 +51,8 @@
 
 
 
-    <x-auth-card>
+    {{--
+        <x-auth-card>
         <x-slot name="logo">
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
@@ -105,4 +106,5 @@
             </div>
         </form>
     </x-auth-card>
+    --}}
 </x-guest-layout>
