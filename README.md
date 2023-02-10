@@ -32,6 +32,7 @@ php artisan serve
 
 - [ ] [Open http://localhost:8000](http://localhost:8000)
 
-Email: admin@pitb.gov.pk <br/>
+<!-- Email: admin@pitb.gov.pk <br/> -->
+Username: super_admin <br/>
 Password: admin@pitb
 
