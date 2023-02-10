@@ -18,9 +18,9 @@
                         <img src="{{asset('images/auth-logo-dark.png')}}" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
                         <h3 class="mb-4 f-w-400">Signin</h3>
                         <div class="input-group mb-3">
-                            <span class="input-group-text"><i class="feather icon-mail"></i></span>
-                            <input id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email address" type="email" name="email" :value="old('email')" autofocus />
-                            @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                            <span class="input-group-text"><i class="feather icon-user"></i></span>
+                            <input id="username" class="form-control @error('username') is-invalid @enderror" placeholder="username" type="text" name="username" :value="old('username')" autofocus />
+                            @error('username') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                         <div class="input-group mb-4">
                             <span class="input-group-text"><i class="feather icon-lock"></i></span>
