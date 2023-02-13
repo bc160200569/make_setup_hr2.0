@@ -36,6 +36,60 @@
                         <span class="pcoded-mtext">Logout</span>
                     </a>
                 </li>--}}
+{{-- 
+                   @php
+                    
+                    $navbar = navbar();
+                    $i=1;
+                @endphp
+                @foreach($navbar as $nav)
+                    @if($nav->sub_nav === 0)
+                        @if($nav->is_show === 1)
+                            <li class="nav-item pcoded-hasmenu">
+                                <a href="{{route('roles.index')}}" class="nav-link ">
+                                    <span class="pcoded-micon"><i class="{{ $nav->icon }}"></i></span>
+                                    <span class="pcoded-mtext">{{ $nav->name }}</span>
+                                </a>
+                            </li>
+                        @endif
+                    @else
+                        @if($nav->is_show === 1)
+                            <li>
+                                <a href="#submenu{{ $i }}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-grid"></i> <span class="ms-0 d-none d-sm-inline" style="color:white ;"><i class="{{ $nav->icon }}" style="margin-right: 10px; color:white"></i>{{ $nav->name}}<i class="fa fa-caret-down" aria-hidden="true" style="margin-left: 10px;"></i></span>
+                                </a>
+                                <ul class="collapse nav flex-column ms-0" id="submenu{{$i}}" data-bs-parent="#menu" style="background-color: #363434; width: 185px; padding-left: 23px;">
+                                    @php
+                                    $subnav = subnav($nav->id);
+                                    dd($subnav);
+                                    @endphp
+                                    @foreach($role_has_sub_navigation as $sub_nav)
+                                        @foreach($subnav as $sub)
+                                            @if($sub->id === $sub_nav->sub_navigation_id)
+                                                @if($sub->is_show === 1)
+                                                <li class="w-100">
+                                                    <a href="{{ url(''.$sub->route) }}" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color:white ;">{{ $sub->name }}</span></a>
+                                                </li>
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+                                </ul>
+                            </li>
+                            <li class="nav-item pcoded-hasmenu">
+                                <a href="#" class="nav-link ">
+                                    <span class="pcoded-micon"><i class="{{ $nav->icon }}"></i></span>
+                                    <span class="pcoded-mtext">{{ $nav->name }}</span>
+                                </a>
+                                <ul class="pcoded-submenu">
+                                    <li><a href="{{route('roles.index')}}">Roles</a></li>
+                                    <li><a href="{{route('permissions.index')}}">Permissions</a></li>
+                                </ul>
+                            </li>
+                        @endif
+                    @endif
+                @endforeach 
+                --}}
                 <li class="nav-item pcoded-hasmenu">
                     <a href="#" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
