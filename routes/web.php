@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,9 @@ Route::middleware(['auth'])->group(function () {
     
     Route::resource('permissions', PermissionController::class);
     Route::post('permissions/datatable', [PermissionController::class, 'index'])->name('permissions.datatable');
+
+    Route::get('navigation',[NavigationController::class, 'index'])->name('navigation.index');
+    Route::post('navigation/datatable', [NavigationController::class, 'index'])->name('navigation.datatable');
 });
 
 Route::get('/', function () {
