@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('role_has_navigations', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->foreignId('role_id')
             ->constrained('roles')
             ->onUpdate('cascade')

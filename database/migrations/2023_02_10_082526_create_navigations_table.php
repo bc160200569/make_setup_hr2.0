@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('navigations', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->string('name', 20);
             $table->string('icon')->nullable()->comment('favicon');
             $table->boolean('sub_nav')->default(1)->comment('0: No, 1: Yes');

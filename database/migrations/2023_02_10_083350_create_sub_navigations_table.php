@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('sub_navigations', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->string('name', 20);
             $table->integer('is_show')->default(1)->comment('0: No, 1: Yes');
             $table->string('route')->nullable();
