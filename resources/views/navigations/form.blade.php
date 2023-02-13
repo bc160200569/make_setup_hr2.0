@@ -1,28 +1,39 @@
-<div class="form-group col-md-6">
-    {!! Form::label('name', 'Navigation Title:', ['class' => 'form-label required-input']) !!}
-    {!! Form::text('name', null, ['class' => 'form-control ' . $errors->first('name', 'error'), 'placeholder' => 'Name', 'maxlength' => '50']) !!}
-    {!! $errors->first('name', '<label class="error">:message</label>') !!}
+<div class="col-xs-4 col-sm-4 col-md-4">
+    <div class="form-group">
+        <strong>Navigation Title:</strong>
+        {!! Form::text('name', null, array('class' => 'form-control')) !!}
+    </div>
 </div>
-<div class="form-group col-md-6">
-    {!! Form::label('email', 'Email', ['class' => 'form-label required-input']) !!}
-    {!! Form::email('email', null, ['class' => 'form-control ' . $errors->first('email', 'error'), 'placeholder' => 'Email', 'maxlength' => '50']) !!}
-    {!! $errors->first('email', '<label class="error">:message</label>') !!}
+<div class="col-xs-4 col-sm-4 col-md-4">
+    <div class="form-group">
+        <strong>Fav Icon:</strong>
+        {!! Form::text('icon', null, array('class' => 'form-control')) !!}
+    </div>
 </div>
-<div class="form-group col-md-6">
-    {!! Form::label('role', 'Role', ['class' => 'form-label required-input']) !!}
-    {!! Form::select('role', $roles, null, ['class' => 'form-control ' . $errors->first('role', 'error'), 'placeholder' => 'Role']) !!}
-    {!! $errors->first('role', '<label class="error">:message</label>') !!}
+<div class="col-xs-4 col-sm-4 col-md-4">
+    <div class="form-group">
+        <strong>Sub Nav:</strong>
+        <select name="sub_nav" id="sub_nav" class="form-control" onchange="hiden(value)">
+            <option value="1" >Yes</option>
+            <option value="0" selected="selected">No</option>
+        </select>
+    </div>
 </div>
-@if(@$user)
-@else
-<div class="form-group col-md-6">
-    {!! Form::label('password', 'Password', ['class' => 'form-label required-input']) !!}
-    {!! Form::password('password', ['class' => 'form-control ' . $errors->first('password', 'error'), 'placeholder' => 'Password']) !!}
-    {!! $errors->first('password', '<label class="error">:message</label>') !!}
+<div class="col-xs-4 col-sm-4 col-md-4">
+    <div class="form-group">
+        <strong>Is Show?:</strong>
+        {!! Form::select('is_show', array('1' => 'Yes', '0' => 'No'), '1', array('class' => 'form-control')) !!}
+    </div>
 </div>
-<div class="form-group col-md-6">
-    {!! Form::label('password_confirmation', 'Confirm Password', ['class' => 'form-label required-input']) !!}
-    {!! Form::password('password_confirmation', ['class' => 'form-control ' . $errors->first('password_confirmation', 'error'), 'placeholder' => 'Confirm Password']) !!}
-    {!! $errors->first('password_confirmation', '<label class="error">:message</label>') !!}
+<div class="col-xs-4 col-sm-4 col-md-4" id="route">
+    <div class="form-group">
+        <strong>Route:</strong>
+        {!! Form::text('route', null, array('class' => 'form-control')) !!}
+    </div>
 </div>
-@endif
+<div class="col-xs-4 col-sm-4 col-md-4">
+    <div class="form-group">
+        <strong>Status:</strong>
+        {!! Form::select('status', array('1' => 'Active', '0' => 'Deactive'), '1', array('class' => 'form-control')) !!}
+    </div>
+</div>
