@@ -6,9 +6,11 @@
 - [ ] [Laravel Documentation](https://laravel.com/docs/9.x/installation)
 
 ```
-cp .env.example .env
-php artisan key:generate
 composer install
+composer update
+php artisan key:generate
+cp .env.example .env
+
 
 create database and update database creds in .env then run migration
 

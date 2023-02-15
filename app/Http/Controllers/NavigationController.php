@@ -45,7 +45,17 @@ class NavigationController extends Controller
                                     </td>';
                     return $statusAction;
                 })
+                ->addColumn('sub_navigation', function ($nav){
+                    $sub = '<td>
+                                <span class="badge '.($nav->sub_nav == 1 ? "bg-primary" : "bg-danger").'">'.($nav->sub_nav == 1 ? "View Sub-Navigation" : "Add Sub-Navigation").'</span>
+                                <div class="overlay-edit">
+                                    <a href="'.route('users.edit', $nav->uuid).'" class="btn btn-icon btn-secondary"><i class="feather icon-list"></i></a>
+                                </div>
+                            </td>';
+                    return $sub;
+                })
                 ->editColumn('id', 'ID: {{$id}}')
+                ->rawColumns(['action', 'sub_navigation'])
                 ->make(true);
         }
         

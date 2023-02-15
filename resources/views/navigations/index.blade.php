@@ -41,11 +41,12 @@
                     },
                     {
                         data: 'action',
-                        width: '15%', 
+                        width: '10%', 
                     },
                     {
-                        data: 'url',
-                        width: '15%', 
+                        data: 'sub_navigation',
+                        orderable: false, 
+                        searchable: false 
                     },
 
                 ];
