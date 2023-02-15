@@ -68,8 +68,8 @@
                                     <div class="form-group">
                                         <strong>Status:</strong>
                                         <select name="status" id="status" class="form-control">
-                                            <option value="1" selected="selected">Yes</option>
-                                            <option value="0">No</option>
+                                            <option value="1" selected="selected">Active</option>
+                                            <option value="0">Inactive</option>
                                         </select>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                     </div>
                     {{--<!-- Modal body -->--}}
                     <div class="modal-body">
-                        <form action="{{ route('navigation_store') }}" method="POST">
+                        <form action="{{ route('navigation_update') }}" method="POST">
                             @csrf
 
 
@@ -118,6 +118,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Name:</strong>
+                                        <input type="hidden" name="id" id="nav_id" class="form-control">
                                         <input type="text" name="name" id="nav_name" class="form-control" placeholder="Navigation Name" required>
                                     </div>
                                 </div>
@@ -276,7 +277,7 @@
               success: function (response){
                 // console.log(response.navigation[0].icon);
                 // console.log(nav_id);
-                // // $('#nav_id').val(nav_id);
+                $('#nav_id').val(nav_id);
                 $('#nav_name').val(response.navigation[0].name);
                 $('#nav_icon').val(response.navigation[0].icon);
                 $('#nav_sub_nav').val(response.navigation[0].sub_nav);
@@ -291,11 +292,11 @@
         //     $('#editProduct').modal('ata-bs-dismiss');
         // });
     })
-    $(document).ready(function() {
-        $(document).on('click','#edit_form', function(){
-            // var nav_id = $(this).val();
-            // console.log(nav_id);
-            $('#edit_Product').modal('destroy');
-        });
-      })
+    // $(document).ready(function() {
+    //     $(document).on('click','#edit_form', function(){
+    //         // var nav_id = $(this).val();
+    //         // console.log(nav_id);
+    //         $('#edit_Product').modal('destroy');
+    //     });
+    //   })
 </script>

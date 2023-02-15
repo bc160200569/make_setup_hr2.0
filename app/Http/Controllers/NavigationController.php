@@ -146,4 +146,19 @@ class NavigationController extends Controller
             'navigation' => $navigation,
         ]);
     }
+    public function navigation_update(Request $request){
+        // dd($request->all());
+        $table = Navigation::where('uuid',$request->id);
+        $table->name = $request->name;
+        $table->icon = $request->icon;
+        $table->sub_nav = $request->sub_nav;
+        $table->is_show = $request->is_show;
+        $table->route = $request->route;
+        $table->is_active = $request->status;
+        $table->update();
+
+        Session::flash('success', __('messages.Navigation_updated'));
+
+        return redirect()->route('navigation_index');
+    }
 }
