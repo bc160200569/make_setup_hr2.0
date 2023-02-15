@@ -44,6 +44,9 @@ class Navigation extends Model
         
     }
 
+    protected $fillable = [
+        'name'
+    ];
 
     public function navrole()
     {
