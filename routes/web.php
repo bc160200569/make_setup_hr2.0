@@ -33,6 +33,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('navigation',[NavigationController::class, 'index'])->name('navigation.index');
     Route::post('navigation/datatable', [NavigationController::class, 'index'])->name('navigation.datatable');
+    Route::get('navigation_index', [NavigationController::class, 'navigation_index'])->name('navigation_index');
+    Route::post('navigation_index/datatable', [NavigationController::class, 'navigation_index'])->name('navigation_index.datatable');
+    Route::post('navigation_store', [NavigationController::class, 'store'])->name('navigation_store');
+    Route::get('navigation_edit/{id}', [NavigationController::class, 'navigation_edit'])->name('navigation_edit');
 });
 
 Route::get('/', function () {
