@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Navigation;
 use Illuminate\Http\Request;
 
+
 use DataTables;
 use Session;
 
@@ -111,10 +112,8 @@ class NavigationController extends Controller
                             </td>';
                     return $sub;
                 })
-<<<<<<< HEAD
                 ->editColumn('id', 'ID: {{$id}}')
                 ->rawColumns(['action', 'sub_navigation'])
-=======
                 ->editColumn('icon', function ($nav){
                     $icon = '<td>
                                 <i class="'.($nav->icon).'"></i>
@@ -123,7 +122,6 @@ class NavigationController extends Controller
                 })
                 ->editColumn('id', 'ID: {{$id}}')
                 ->rawColumns(['action', 'sub_navigation', 'icon'])
->>>>>>> b16822fd44c772a18b761493d0e17db839e1ed9d
                 ->make(true);
         }
         return view('navigations.navigation_index');
@@ -152,14 +150,18 @@ class NavigationController extends Controller
         ]);
     }
     public function navigation_update(Request $request){
-        // dd($request->all());
-        $table = Navigation::where('uuid',$request->id);
-        $table->name = $request->name;
-        $table->icon = $request->icon;
-        $table->sub_nav = $request->sub_nav;
-        $table->is_show = $request->is_show;
-        $table->route = $request->route;
-        $table->is_active = $request->status;
+        // dd($request->id);
+        // $id = Navigation::where('uuid',$request->id)->get('id');
+        // echo $id;
+        // $table = Navigation::find($request->id);
+        $table = Navigation::where('uuid',$request->id)->first();
+        // dd($table);
+        $table->name = $request->get('name');
+        $table->icon = $request->get('icon');
+        $table->sub_nav = $request->get('sub_nav');
+        $table->is_show = $request->get('is_show');
+        $table->route = $request->get('route');
+        $table->is_active = $request->get('status');
         $table->update();
 
         Session::flash('success', __('messages.Navigation_updated'));
