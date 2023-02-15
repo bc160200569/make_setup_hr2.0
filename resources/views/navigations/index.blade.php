@@ -2,7 +2,7 @@
     <div class="pcoded-main-container">
         <div class="pcoded-content">
             <!-- [ breadcrumb ] start -->
-            <x-breadcrumb title="Navigations" :button="['name' => 'Add', 'allow' => true, 'link' => route('users.create')]" />
+            <x-breadcrumb title="Navigations" :button="['name' => 'Add', 'allow' => true, 'link' => route('users.create'), 'id' =>'navigation']" />
             <!-- [ breadcrumb ] end -->
             <!-- [ Main Content ] start -->
             <div class="row">

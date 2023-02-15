@@ -37,4 +37,3 @@ php artisan serve
 <!-- Email: admin@pitb.gov.pk <br/> -->
 Username: super_admin <br/>
 Password: admin@pitb
-

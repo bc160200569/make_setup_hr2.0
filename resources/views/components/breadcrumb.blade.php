@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="page-header-title">
                     @if(@$button['allow'])
-                        <a href="{{ $button['link'] }}" class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2 float-end">{{ $button['name'] }}</a>
+                        <a class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2 float-end" data-bs-toggle="modal" data-bs-target="{{ $button['id'] }}">{{ $button['name'] }}</a>
                     @endif
                     <h5 class="m-b-10">{{$title}}</h5>
                 </div>
