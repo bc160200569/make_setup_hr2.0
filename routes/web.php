@@ -38,6 +38,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('navigation_store', [NavigationController::class, 'store'])->name('navigation_store');
     Route::get('navigation_edit/{id}', [NavigationController::class, 'navigation_edit'])->name('navigation_edit');
     Route::post('navigation_update', [NavigationController::class, 'navigation_update'])->name('navigation_update');
+    Route::get('navigation/update-status/{navigation}', [NavigationController::class, 'updateStatus'])->name('navigation.updateStatus');
+    Route::delete('navigation/{navigation}', [NavigationController::class, 'destroy'])->name('navigation.destroy');
 });
 
 Route::get('/', function () {
