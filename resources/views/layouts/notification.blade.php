@@ -9,7 +9,7 @@
     toastr.remove();
     toastr.success("{{ Session::get('success') }}", '', {
         closeButton: true,
-        timeOut: 20000,
+        timeOut: 3000,
         progressBar: true,
         newestOnTop: true
     }); 
@@ -21,7 +21,7 @@
   @if(Session::has('info'))
     toastr.info("{{ Session::get('info') }}", '', {
         closeButton: true,
-        timeOut: 20000,
+        timeOut: 3000,
         progressBar: true,
         newestOnTop: true
     });
@@ -31,7 +31,7 @@
   @if(Session::has('warning'))
     toastr.warning("{{ Session::get('warning') }}", '', {
         closeButton: true,
-        timeOut: 20000,
+        timeOut: 3000,
         progressBar: true,
         newestOnTop: true
     });
@@ -41,7 +41,7 @@
   @if(Session::has('error'))
     toastr.error("{{ Session::get('error') }}", '', {
         closeButton: true,
-        timeOut: 20000,
+        timeOut: 3000,
         progressBar: true,
         newestOnTop: true
     });
