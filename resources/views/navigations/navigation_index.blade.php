@@ -152,10 +152,10 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12" id="route">
+                                <div class="col-xs-12 col-sm-12 col-md-12 routes" id="routes">
                                     <div class="form-group">
                                         <strong>URL:</strong>
-                                        <input type="text" name="route" id="nav_route" class="form-control" placeholder="Enter URL">
+                                        <input type="text" name="route" id="nav_url" class="form-control" placeholder="Enter URL">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -209,7 +209,7 @@
                 <div class="col-xl-12 col-md-12">
                     <div class="card user-profile-list">
                         <div class="card-body-dd theme-tbl">
-                            <x-table :keys="['Title', 'Icon', 'Sub Nav', 'Is Show?', 'Route', 'Status', 'Action']"></x-table>
+                            <x-table :keys="['Title', 'Icon', 'Sub Nav', 'Is Show?', 'URL', 'Status', 'Action']"></x-table>
                         </div>
                     </div>
                 </div>
@@ -240,6 +240,8 @@
                 {
                     data: 'action',
                     width: '15%',
+                    orderable: false,
+                    searchable: false
                 },
                 {
                     data: 'sub_navigation',
@@ -258,11 +260,26 @@
     function hiden(value) {
         if (value == 1) {
             $('#route').css('display', 'none');
+            $('#routes').css('display', 'none');
         } else {
             $('#route').css('display', 'block');
+            $('#routes').css('display', 'block');
         }
 
     }
+    // function hiden(value) {
+    //     var abc = $("#nav_sub_nav").val();
+    //     var xyz = $("#sub_nav").val();
+    //     // alert(abc); return false;
+    //     if (abc == 1 || xyz == 1) {
+    //         $('#route').css('display', 'none');
+    //         $('#routes').css('display', 'none');
+    //     } else {
+    //         $('#route').css('display', 'block');
+    //         $('#routes').css('display', 'block');
+    //     }
+
+    // }
 </script>
 <script>
     $(document).ready(function() {
@@ -281,6 +298,14 @@
                 $('#nav_name').val(response.navigation[0].name);
                 $('#nav_icon').val(response.navigation[0].icon);
                 $('#nav_sub_nav').val(response.navigation[0].sub_nav);
+                $('#nav_is_show').val(response.navigation[0].is_show);
+                var subnav = response.navigation[0].sub_nav;
+                if(subnav === 1){
+                    $('#routes').hide();
+                }
+                else{
+                    $('#routes').show();
+                }
                 $('#nav_url').val(response.navigation[0].route);
                 $('#nav_status').val(response.navigation[0].is_active);
               }
