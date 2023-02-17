@@ -3,6 +3,7 @@
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SubNavigationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -31,6 +32,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('permissions', PermissionController::class);
     Route::post('permissions/datatable', [PermissionController::class, 'index'])->name('permissions.datatable');
 
+    // Navigation Routes
+
     Route::get('navigation',[NavigationController::class, 'index'])->name('navigation.index');
     Route::post('navigation/datatable', [NavigationController::class, 'index'])->name('navigation.datatable');
     Route::get('navigation_index', [NavigationController::class, 'navigation_index'])->name('navigation_index');
@@ -40,6 +43,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('navigation_update', [NavigationController::class, 'navigation_update'])->name('navigation_update');
     Route::get('navigation/update-status/{navigation}', [NavigationController::class, 'updateStatus'])->name('navigation.updateStatus');
     Route::delete('navigation/{navigation}', [NavigationController::class, 'destroy'])->name('navigation.destroy');
+
+    // Sub Navigation Routes
+    Route::get('sub_navigation/{id}',[SubNavigationController::class, 'index'])->name('sub_navigation.index');
+    Route::post('sub_navigation/datatable/{id}', [SubNavigationController::class, 'index'])->name('sub_navigation.datatable');
+    Route::post('sub_navigation_store', [SubNavigationController::class, 'store'])->name('sub_navigation.store');
 });
 
 Route::get('/', function () {
