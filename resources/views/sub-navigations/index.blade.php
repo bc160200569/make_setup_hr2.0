@@ -41,9 +41,9 @@
     @include('layouts.dataTablesFiles')
     @push('scripts')
     <script>
-        var nav_id = 
+        var nav_id = "7105300e-ab8a-11ed-bed2-6c4b90e58d19";
         $(document).ready(function() {
-            const datatable_url = route('sub-navigation.datatable',);
+            const datatable_url = route('sub_navigation.datatable',nav_id);
             const datatable_columns = [{
                     data: 'name'
                 },
