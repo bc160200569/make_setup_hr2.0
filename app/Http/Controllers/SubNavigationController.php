@@ -23,11 +23,11 @@ class SubNavigationController extends Controller
             // dd($sub_navigations);
 
             return Datatables::of($sub_navigations)
-                ->editColumn('sub_nav', function ($nav){
-                    if ($nav->sub_nav == 0) return 'No';
-                    if ($nav->sub_nav == 1) return 'Yes';
-                    // return 'Cancel';
-                })
+                // ->editColumn('sub_nav', function ($nav){
+                //     if ($nav->sub_nav == 0) return 'No';
+                //     if ($nav->sub_nav == 1) return 'Yes';
+                //     // return 'Cancel';
+                // })
                 ->editColumn('is_show', function ($nav){
                     if ($nav->is_show == 0) return 'No';
                     if ($nav->is_show == 1) return 'Yes';
