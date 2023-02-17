@@ -19,13 +19,19 @@ return new class extends Migration
             $table->string('name', 20);
             $table->integer('is_show')->default(1)->comment('0: No, 1: Yes');
             $table->string('route')->nullable();
-            $table->foreignId('nav_id')
+            $table->foreignUuid('nav_id')
+            ->references('uuid')
+            ->on('navigations')
             ->constrained('navigations')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->boolean('is_active')->default(1)->comment('0: Inactive, 1: Active');
             $table->timestamps();
         });
+
+        // Schema::table('sub_navigations', function($table){
+        //     $table->foreign('nav_id')->reference('uuid')->on('navigations');
+        // });
     }
 
     /**
