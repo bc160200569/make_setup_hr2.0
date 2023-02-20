@@ -1,16 +1,9 @@
 <div class="modal" id="edit_navigation">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-
-            @php
-            $title = "Edit Navigation";
-            @endphp
-            @section('title')
-            {{ $title }}
-            @endsection
             {{--<!-- Modal Header -->--}}
             <div class="modal-header">
-                <h4 class="modal-title">{{ $title }}</h4>
+                <h4 class="modal-title">Edit Navigation</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             {{--<!-- Modal body -->--}}

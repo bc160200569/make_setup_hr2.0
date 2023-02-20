@@ -6,8 +6,11 @@
         <div class="row align-items-center">
             <div class="col-md-12">
                 <div class="page-header-title">
-                    @if(@$button['allow'])
-                        <a href="{{ $button['link'] }}" class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2 float-end">{{ $button['name'] }}</a>
+                    @if(@$button1['allow'])
+                        <a class="btn btn-primary font-weight-bold btn-sm px-4 font-size-base ml-2 float-end" data-bs-toggle="modal" data-bs-target="{{ $button1['id'] }}">{{ $button1['name'] }}</a>
+                    @endif
+                    @if(@$button2['allow'])
+                        <a href="{{ $button2['link'] }}" class="btn btn-danger font-weight-bold btn-sm px-4 font-size-base ml-2 float-end" style="margin-right: 10px;">{{ $button2['name'] }}</a>
                     @endif
                     <h5 class="m-b-10">{{$title}}</h5>
                 </div>

@@ -76,21 +76,11 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li class="nav-item pcoded-hasmenu">
-                                <a href="#" class="nav-link ">
-                                    <span class="pcoded-micon"><i class="{{ $nav->icon }}"></i></span>
-                                    <span class="pcoded-mtext">{{ $nav->name }}</span>
-                                </a>
-                                <ul class="pcoded-submenu">
-                                    <li><a href="{{route('roles.index')}}">Roles</a></li>
-                                    <li><a href="{{route('permissions.index')}}">Permissions</a></li>
-                                </ul>
-                            </li>
                         @endif
                     @endif
                 @endforeach 
                 --}}
-                <li class="nav-item pcoded-hasmenu">
+                {{--<li class="nav-item pcoded-hasmenu">
                     <a href="#" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
                         <span class="pcoded-mtext">Settings</span>
@@ -99,7 +89,42 @@
                         <li><a href="{{route('roles.index')}}">Roles</a></li>
                         <li><a href="{{route('permissions.index')}}">Permissions</a></li>
                     </ul>
-                </li>
+                </li>--}}
+                @php
+                    $navbar = navbar();
+                @endphp
+                @foreach($navbar as $nav)
+                    @if($nav->sub_nav === 0)
+                        @if($nav->is_show === 1)
+                            <li class="nav-item">
+                                <a href="{{ url(''.$nav->route) }}" class="nav-link ">
+                                    <span class="pcoded-micon"><i class="{{ $nav->icon }}"></i></span>
+                                    <span class="pcoded-mtext">{{ $nav->name }}</span>
+                                </a>
+                            </li>
+                        @endif
+                    @else
+                        @if($nav->is_show === 1)
+                            <li class="nav-item pcoded-hasmenu">
+                                <a href="#" class="nav-link ">
+                                    <span class="pcoded-micon"><i class="{{ $nav->icon }}"></i></span>
+                                    <span class="pcoded-mtext">{{ $nav->name }}</span>
+                                </a>
+                                @php
+                                    $subnav = subnav($nav->id);
+                                @endphp
+                                @foreach($subnav as $sub)
+                                    @if($sub->is_show === 1)
+                                    <ul class="pcoded-submenu">
+                                        <li><a href="{{ url(''.$sub->route) }}">{{ $sub->name }}</a></li>
+                                    </ul>
+                                    @endif
+                                @endforeach
+                            </li>
+                        @endif
+                    @endif
+                @endforeach
+
             </ul>
 
             {{--<div class="card text-center">

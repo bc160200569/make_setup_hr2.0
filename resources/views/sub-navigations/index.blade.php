@@ -1,10 +1,4 @@
 <x-app-layout>
-    @php
-    $title = "Sub Navigations";
-    @endphp
-    @section('title')
-    {{ $title }}
-    @endsection
     <div class="container">
     @include ('sub-navigations.create')
     @include ('sub-navigations.edit')
@@ -21,7 +15,7 @@
         @endif
         <div class="pcoded-content">
             <!-- [ breadcrumb ] start -->
-            <x-breadcrumb title="{{ $title }}" :button="['name' => 'Add', 'allow' => true, 'id'=>'#add_navigation']" />
+            <x-breadcrumb-modal title="Sub Navigations" :button1="['name' => 'Add', 'allow' => true, 'id'=>'#add']" :button2="['name' => 'Back', 'allow' => true, 'link' => route('navigation.index')]"/>
             <!-- [ breadcrumb ] end -->
             <!-- [ Main Content ] start -->
             <div class="row">
@@ -41,7 +35,7 @@
     @include('layouts.dataTablesFiles')
     @push('scripts')
     <script>
-        var nav_id = "7105300e-ab8a-11ed-bed2-6c4b90e58d19";
+        var nav_id = "{{$nav_id}}";
         $(document).ready(function() {
             const datatable_url = route('sub_navigation.datatable',nav_id);
             const datatable_columns = [{
@@ -67,7 +61,7 @@
     </script>
     @endpush
 </x-app-layout>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function hiden(value) {
         if (value == 1) {
             $('#route').css('display', 'none');
@@ -78,30 +72,36 @@
         }
 
     }
-</script>
+</script> -->
 <script>
     $(document).ready(function() {
-        $(document).on('click','#editNavigation', function(){
-            var nav_id = $(this).val();
-            $('#edit_navigation').modal('show');
+        $(document).on('click','#editSub', function(){
+            var sub_nav_id = $(this).val();
+            console.log(sub_nav_id);
+            var url = '{{ route("sub_navigation_edit", ":id") }}';
+            url = url.replace(':id', sub_nav_id);
+            $('#edit').modal('show');
             $.ajax({
               type: "GET",
-              url:"navigation_edit/" + nav_id,
+            //   url:"sub_navigation_edit/" + sub_nav_id,
+              url : url,
               success: function (response){
-                $('#nav_id').val(nav_id);
-                $('#nav_name').val(response.navigation[0].name);
-                $('#nav_icon').val(response.navigation[0].icon);
-                $('#nav_sub_nav').val(response.navigation[0].sub_nav);
-                $('#nav_is_show').val(response.navigation[0].is_show);
-                var subnav = response.navigation[0].sub_nav;
-                if(subnav === 1){
-                    $('#routes').hide();
-                }
-                else{
-                    $('#routes').show();
-                }
-                $('#nav_url').val(response.navigation[0].route);
-                $('#nav_status').val(response.navigation[0].is_active);
+                console.log(response);
+                $('#sub_nav_id').val(sub_nav_id);
+                $('#nav_id').val(response.data[0].nav_id);
+                $('#nav_name').val(response.data[0].name);
+                // $('#nav_icon').val(response.data[0].icon);
+                // $('#nav_sub_nav').val(response.data[0].sub_nav);
+                $('#nav_is_show').val(response.data[0].is_show);
+                // var subnav = response.data[0].sub_nav;
+                // if(subnav === 1){
+                //     $('#routes').hide();
+                // }
+                // else{
+                //     $('#routes').show();
+                // }
+                $('#nav_url').val(response.data[0].route);
+                $('#nav_status').val(response.data[0].is_active);
               }
             });
         });

@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Navigation;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Session;
+use Yajra\DataTables\Facades\DataTables;
 
-use DataTables;
-use Session;
-
+// use DataTables;
+// use Session;
 
 class NavigationController extends Controller
 {
@@ -149,7 +150,7 @@ class NavigationController extends Controller
 
         return redirect()->route('navigation.index');
     }
-    public function navigation_edit($id){
+    public function edit($id){
         $navigation = Navigation::where('uuid', $id)->get();
         // dd($navigation);
         // dd($id);
@@ -158,7 +159,7 @@ class NavigationController extends Controller
             'navigation' => $navigation,
         ]);
     }
-    public function navigation_update(Request $request){
+    public function update(Request $request){
         // dd($request->id);
         // $id = Navigation::where('uuid',$request->id)->get('id');
         // echo $id;

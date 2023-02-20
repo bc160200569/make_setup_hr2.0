@@ -1,16 +1,10 @@
-<div class="modal" id="add_navigation">
+<div class="modal" id="add">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
-            @php
-            $title = "Add Sub Navigation";
-            @endphp
-            @section('title')
-            {{ $title }}
-            @endsection
             {{--<!-- Modal Header -->--}}
             <div class="modal-header">
-                <h4 class="modal-title">{{ $title }}</h4>
+                <h4 class="modal-title">Add Sub Navigation</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             {{--<!-- Modal body -->--}}
@@ -52,8 +46,8 @@
                             </div>
                         </div>
                         {{--<!-- <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit</button>
-        </div> -->--}}
+                            <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit</button>
+                        </div> -->--}}
                     </div>
 
                     <div class="modal-footer">

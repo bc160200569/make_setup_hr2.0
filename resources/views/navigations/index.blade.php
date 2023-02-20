@@ -1,10 +1,4 @@
 <x-app-layout>
-    @php
-    $title = "Navigations";
-    @endphp
-    @section('title')
-    {{ $title }}
-    @endsection
     <div class="container">
     @include ('navigations.create')
     @include ('navigations.edit')
@@ -21,7 +15,7 @@
         @endif
         <div class="pcoded-content">
             <!-- [ breadcrumb ] start -->
-            <x-breadcrumb title="{{ $title }}" :button="['name' => 'Add', 'allow' => true, 'id'=>'#add_navigation']" />
+            <x-breadcrumb-modal title="Navigations" :button1="['name' => 'Add', 'allow' => true, 'id'=>'#add_navigation']" />
             <!-- [ breadcrumb ] end -->
             <!-- [ Main Content ] start -->
             <div class="row">

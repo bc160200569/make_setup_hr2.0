@@ -32,22 +32,27 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('permissions', PermissionController::class);
     Route::post('permissions/datatable', [PermissionController::class, 'index'])->name('permissions.datatable');
 
-    // Navigation Routes
+    // // Navigation Routes
 
-    Route::get('navigation',[NavigationController::class, 'index'])->name('navigation.index');
-    Route::post('navigation/datatable', [NavigationController::class, 'index'])->name('navigation.datatable');
-    Route::get('navigation_index', [NavigationController::class, 'navigation_index'])->name('navigation_index');
-    Route::post('navigation_index/datatable', [NavigationController::class, 'navigation_index'])->name('navigation_index.datatable');
-    Route::post('navigation_store', [NavigationController::class, 'store'])->name('navigation_store');
-    Route::get('navigation_edit/{id}', [NavigationController::class, 'navigation_edit'])->name('navigation_edit');
-    Route::post('navigation_update', [NavigationController::class, 'navigation_update'])->name('navigation_update');
-    Route::get('navigation/update-status/{navigation}', [NavigationController::class, 'updateStatus'])->name('navigation.updateStatus');
-    Route::delete('navigation/{navigation}', [NavigationController::class, 'destroy'])->name('navigation.destroy');
+    // Route::get('navigation',[NavigationController::class, 'index'])->name('navigation.index');
+    // Route::post('navigation/datatable', [NavigationController::class, 'index'])->name('navigation.datatable');
+    // // Route::get('navigation_index', [NavigationController::class, 'navigation_index'])->name('navigation_index');
+    // // Route::post('navigation_index/datatable', [NavigationController::class, 'navigation_index'])->name('navigation_index.datatable');
+    // Route::post('navigation_store', [NavigationController::class, 'store'])->name('navigation_store');
+    // Route::get('navigation_edit/{id}', [NavigationController::class, 'edit'])->name('navigation_edit');
+    // Route::post('navigation_update', [NavigationController::class, 'update'])->name('navigation_update');
+    // Route::get('navigation/update-status/{navigation}', [NavigationController::class, 'updateStatus'])->name('navigation.updateStatus');
+    // Route::delete('navigation/{navigation}', [NavigationController::class, 'destroy'])->name('navigation.destroy');
 
-    // Sub Navigation Routes
-    Route::get('sub_navigation/{id}',[SubNavigationController::class, 'index'])->name('sub_navigation.index');
-    Route::post('sub_navigation/datatable/{id}', [SubNavigationController::class, 'index'])->name('sub_navigation.datatable');
-    Route::post('sub_navigation_store', [SubNavigationController::class, 'store'])->name('sub_navigation.store');
+    // // Sub Navigation Routes
+    // Route::get('sub_navigation/{id}',[SubNavigationController::class, 'index'])->name('sub_navigation.index');
+    // Route::post('sub_navigation/datatable/{id}', [SubNavigationController::class, 'index'])->name('sub_navigation.datatable');
+    // Route::post('sub_navigation_store', [SubNavigationController::class, 'store'])->name('sub_navigation.store');
+    // Route::get('sub_navigation_edit/{id}', [SubNavigationController::class, 'edit'])->name('sub_navigation_edit');
+    // Route::post('sub_navigation_update', [SubNavigationController::class, 'update'])->name('sub_navigation_update');
+    // Route::get('sub_navigation/update-status/{subnavigation}', [SubNavigationController::class, 'updateStatus'])->name('sub_navigation.updateStatus');
+    // Route::delete('sub_navigation/{subnavigation}', [SubNavigationController::class, 'destroy'])->name('sub_navigation.destroy');
+
 });
 
 Route::get('/', function () {
@@ -59,3 +64,5 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+require __DIR__.'/navigation.php';
+require __DIR__.'/sub_navigation.php';
