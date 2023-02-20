@@ -66,3 +66,4 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 require __DIR__.'/navigation.php';
 require __DIR__.'/sub_navigation.php';
+require __DIR__.'/permission.php';
