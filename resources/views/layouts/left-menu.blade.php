@@ -110,19 +110,21 @@
                                     <span class="pcoded-micon"><i class="{{ $nav->icon }}"></i></span>
                                     <span class="pcoded-mtext">{{ $nav->name }}</span>
                                 </a>
-                                @php
-                                    $subnav = subnav($nav->id);
-                                @endphp
-                                @foreach($subnav as $sub)
-                                    @if($sub->is_show === 1)
-                                    <ul class="pcoded-submenu">
-                                        <li><a href="{{ url(''.$sub->route) }}">{{ $sub->name }}</a></li>
-                                    </ul>
-                                    @endif
-                                @endforeach
+                                <ul class="pcoded-submenu">
+                                    @php
+                                        $subnav = subnav($nav->id);
+                                    @endphp
+                                    @foreach($subnav as $sub)
+                                        @if($sub->nav_id == $nav->uuid)
+                                            @if($sub->is_show === 1)
+                                                <li><a href="{{ url(''.$sub->route) }}">{{ $sub->name }}</a></li>
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                </ul>
                             </li>
                         @endif
-                    @endif
+                    @endif                    
                 @endforeach
 
             </ul>
