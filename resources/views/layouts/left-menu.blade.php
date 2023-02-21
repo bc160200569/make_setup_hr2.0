@@ -80,7 +80,8 @@
                     @endif
                 @endforeach 
                 --}}
-                {{--<li class="nav-item pcoded-hasmenu">
+                {{--
+                    <li class="nav-item pcoded-hasmenu">
                     <a href="#" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
                         <span class="pcoded-mtext">Settings</span>
@@ -89,7 +90,8 @@
                         <li><a href="{{route('roles.index')}}">Roles</a></li>
                         <li><a href="{{route('permissions.index')}}">Permissions</a></li>
                     </ul>
-                </li>--}}
+                </li>
+                --}}
                 @php
                     $navbar = navbar();
                 @endphp
